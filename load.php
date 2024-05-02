@@ -14,19 +14,18 @@ try {
     $pdo = new PDO($dsn, $db_user, $db_pass, $options);
 
     // SQL-Query mit Platzhaltern für das Einfügen von Daten
-    $sql = "INSERT INTO Weather (location, temperature, precipitation, cloud_cover, weather_condition) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO Surfo (temperatur, wasserfluss, vorhersage2h, lufttemperatur) VALUES (?, ?, ?, ?)";
 
     // Bereitet die SQL-Anweisung vor
     $stmt = $pdo->prepare($sql);
 
     // Fügt jedes Element im Array in die Datenbank ein
-    foreach ($weather_data as $item) {
+    foreach ($aareguru_data as $item) {
         $stmt->execute([
-            $item['location'],
-            $item['temperature_2m'],
-            $item['precipitation'],
-            $item['cloud_cover'],
-            $item['condition']
+            $item['temperatur'],
+            $item['wasserfluss'],
+            $item['vorhersage2h'],
+            $item['lufttemperatur']
         ]);
     }
 
