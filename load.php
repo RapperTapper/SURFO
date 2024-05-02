@@ -23,9 +23,7 @@ try {
     // echo $last_aareguru_data['aareguruTime'];
     // echo "<br>";
 
-    if ($last_aareguru_data['aareguruTime'] == $aareguru_data[0]['aareguruTime']) {
-        echo "Daten sind bereits in der Tabelle.";
-    } else if ($last_aareguru_data['aareguruTime'] != $aareguru_data[0]['aareguruTime'] || $last_aareguru_data['aareguruTime'] == NULL) {
+    if (!isset($last_aareguru_data['aareguruTime']) || $last_aareguru_data['aareguruTime'] != $aareguru_data[0]['aareguruTime']) {
         echo "Daten sind noch nicht in der Tabelle.";
         echo "<br>";
     
@@ -47,10 +45,9 @@ try {
             ]);
         } 
         echo "Daten erfolgreich eingefügt.";
-}
-
-    
-
-} catch (PDOException $e) {
-    die("Verbindung zur Datenbank konnte nicht hergestellt werden: " . $e->getMessage());
+    } else {
+        echo "Daten sind bereits in der Tabelle.";
+    }
+    } catch (PDOException $e) {
+        die("Verbindung zur Datenbank konnte nicht hergestellt werden: " . $e->getMessage());
 }
