@@ -23,40 +23,40 @@ if (isset($data['values']['thun'])) {
     $thun_data = $data['values']['thun']; // get the data for Thun
 } else {
     $thun_data = [];
-    $thun_data['temperature'] = 'N/A';
-    $thun_data['flow'] = 'N/A';
-    $thun_data['forecast2h'] = 'N/A';
-    $thun_data['tt'] = 'N/A';
+    $thun_data['temperature'] = NULL;
+    $thun_data['flow'] = NULL;
+    $thun_data['forecast2h'] = NULL;
+    $thun_data['tt'] = NULL;
 }
 
 // wir sammeln keine Ortsdaten, sondern nur die Werte. Falls zu einem späteren Zeitpunk ein weiterer Ort hinzugefügt wird, muss dieser Code hier ergänzt werden.
 
-// if $thun_data['temperature'] is numeric, dann $temperature = $thun_data['temperature'], sonst $temperature = 'N/A'
+// if $thun_data['temperature'] is numeric, dann $temperature = $thun_data['temperature'], sonst $temperature = NULL
 if (is_numeric($thun_data['temperature'])) {
     $temperature = $thun_data['temperature']; // get the temperature
 } else {
-    $temperature = 'N/A';
+    $temperature = NULL;
 }
 
-// if $thun_data['flow'] is numeric, dann $flow = $thun_data['flow'], sonst $flow = 'N/A'
+// if $thun_data['flow'] is numeric, dann $flow = $thun_data['flow'], sonst $flow = NULL
 if (is_numeric($thun_data['flow'])) {
     $flow = $thun_data['flow']; // get the flow
 } else {
-    $flow = 'N/A';
+    $flow = NULL;
 }
 
-// if $thun_data['forecast2h'] is numeric, dann $forecast2h = $thun_data['forecast2h'], sonst $forecast2h = 'N/A'
+// if $thun_data['forecast2h'] is numeric, dann $forecast2h = $thun_data['forecast2h'], sonst $forecast2h = NULL
 if (is_numeric($thun_data['forecast2h'])) {
     $forecast2h = $thun_data['forecast2h']; // get the forecast2h
 } else {
-    $forecast2h = 'N/A';
+    $forecast2h = NULL;
 }
 
-// if $thun_data['tt'] is numeric, dann $tt = $thun_data['tt'], sonst $tt = 'N/A'
+// if $thun_data['tt'] is numeric, dann $tt = $thun_data['tt'], sonst $tt = NULL
 if (is_numeric($thun_data['tt'])) {
     $tt = $thun_data['tt']; // get the tt
 } else {
-    $tt = 'N/A';
+    $tt = NULL;
 }
 
 $aareguru_data[] = [
