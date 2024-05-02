@@ -57,7 +57,8 @@ body {
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
-    /* overflow-x: hidden; Prevent horizontal scroll - hides the overlay / page 02 */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll - hides the overlay / page 02 */
 }
 
 .main {
@@ -69,6 +70,7 @@ body {
     border-radius: 0px;
     box-shadow: 0;
     display: flex;
+    overflow-x: hidden;
 }
 
 .fullscreen {
@@ -114,10 +116,11 @@ body {
     width: calc(45vw);
 }
 
-.backgroundimage {
+.fake-backgroundimage {
     position: absolute;
     z-index: -1;
     top: 0;
+    /* with this position left we can shift the image left/right */
     left: 0;
     width: 110vw;
     height: 100vh;
