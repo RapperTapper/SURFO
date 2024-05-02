@@ -25,7 +25,7 @@ try {
 
     if ($last_aareguru_data['aareguruTime'] == $aareguru_data[0]['aareguruTime']) {
         echo "Daten sind bereits in der Tabelle.";
-    } else if ($last_aareguru_data['aareguruTime'] != $aareguru_data[0]['aareguruTime']) {
+    } else if ($last_aareguru_data['aareguruTime'] != $aareguru_data[0]['aareguruTime'] || $last_aareguru_data['aareguruTime'] == NULL) {
         echo "Daten sind noch nicht in der Tabelle.";
         echo "<br>";
     
