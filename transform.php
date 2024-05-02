@@ -15,7 +15,9 @@ function surf_condition($flow, $temperature) {
     $wasser_adj = '';
     if (!is_numeric($flow) || !is_numeric($temperature)) {
         return "Hüt gits kei Spruch :(";
-    } elseif ($temperature < 10) {
+    } 
+    
+    if ($temperature < 10) {
         $temp_adj = 'iisig';
     } elseif ($temperature >= 10 && $temperature < 17) {
         $temp_adj = 'erfrüschend';
@@ -25,7 +27,9 @@ function surf_condition($flow, $temperature) {
         $temp_adj = 'warm';
     } elseif ($temperature >= 25) {
         $temp_adj = 'z\'warm';
-    } elseif ($flow < 100) {
+    } 
+
+    if ($flow < 100) {
         $wasser_adj = 'keni';
     } elseif ($flow >= 100 && $flow < 200) {
         $wasser_adj = 'gueti';
@@ -36,6 +40,11 @@ function surf_condition($flow, $temperature) {
     }       
     return "Ds Wasser isch " . $temp_adj . ", u Wäue hets " . $wasser_adj . "!";
 }
+
+// reihenfolge vom code?
+$surfCondition = surf_condition($flow, $temperature);
+
+echo $surfCondition;
 
 // transform data
 foreach ($weather_data as $index => $item) {
