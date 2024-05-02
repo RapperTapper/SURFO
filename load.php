@@ -27,6 +27,7 @@ try {
         echo "Daten sind bereits in der Tabelle.";
     } else if ($last_aareguru_data['aareguruTime'] != $aareguru_data[0]['aareguruTime']) {
         echo "Daten sind noch nicht in der Tabelle.";
+        echo "<br>";
     
 
         // SQL-Query mit Platzhaltern für das Einfügen von Daten
