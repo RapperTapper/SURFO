@@ -29,6 +29,7 @@ try {
         ]);
     }
 
+    //kommi
     echo "Daten erfolgreich eingefügt.";
 
 } catch (PDOException $e) {
