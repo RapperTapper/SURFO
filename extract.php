@@ -1,15 +1,16 @@
 <?php
 
-$url = "https://api.open-meteo.com/v1/forecast?latitude=46.9481,46.8499&longitude=7.4474,9.5329&current=temperature_2m,precipitation,cloud_cover&timeformat=unixtime&timezone=Europe%2FBerlin";
+$url = "https://aareguru.existenz.ch/v2018/widget?app=surfo.app.ch&version=1.0.42";
 
+// curl
 $ch = curl_init($url);
 
+// curl options
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $output = curl_exec($ch);
 
-echo "<br>";
-echo "<br>";
+echo $output;
 
 // Speichere alle Daten in Variablen
 $data = json_decode($output, true); // decode the JSON feed
