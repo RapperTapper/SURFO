@@ -16,7 +16,7 @@ echo $output;
 $data = json_decode($output, true); // decode the JSON feed
 
 // make new arry with needed information
-$weather_data = [];
+$aareguru_data = [];
 foreach ($data as $item) {
     $latitude = $item['latitude']; // get the latitude
     $longitude = $item['longitude']; // get the longitude
@@ -24,7 +24,7 @@ foreach ($data as $item) {
     $precipitation = $item['current']['precipitation']; // get the precipitation
     $cloud_cover = $item['current']['cloud_cover']; // get the cloud_cover
 
-    $weather_data[] = [
+    $aareguru_data[] = [
         'latitude' => $latitude,
         'longitude' => $longitude,
         'temperature_2m' => $temperature_2m,
@@ -33,6 +33,6 @@ foreach ($data as $item) {
     ];
 }
 
-// print_r($weather_data);
+// print_r($aareguru_data);
 
-// echo $weather_data[0]['latitude'];
+// echo $aareguru_data[0]['latitude'];
