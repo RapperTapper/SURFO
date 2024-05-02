@@ -75,6 +75,9 @@ $aareguru_data[] = [
     'aareguruTime' => $aareguruTime
 ];
 
-print_r($aareguru_data);
+echo "Extraktion erfolgreich.";
+echo "<br>";
+
+// print_r($aareguru_data);
 
 // echo $aareguru_data[0]['wasserfluss'];
