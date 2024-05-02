@@ -14,7 +14,7 @@ try {
     $pdo = new PDO($dsn, $db_user, $db_pass, $options);
 
     // SQL-Query mit Platzhaltern für das Einfügen von Daten
-    $sql = "INSERT INTO Surfo (temperatur, wasserfluss, vorhersage2h, lufttemperatur) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO Surfo (temperatur, wasserfluss, vorhersage2h, lufttemperatur, aareguruTime) VALUES (?, ?, ?, ?, ?)";
 
     // Bereitet die SQL-Anweisung vor
     $stmt = $pdo->prepare($sql);
@@ -25,11 +25,11 @@ try {
             $item['temperatur'],
             $item['wasserfluss'],
             $item['vorhersage2h'],
-            $item['lufttemperatur']
+            $item['lufttemperatur'],
+            $item['aareguruTime']
         ]);
     }
 
-    //kommi
     echo "Daten erfolgreich eingefügt.";
 
 } catch (PDOException $e) {
