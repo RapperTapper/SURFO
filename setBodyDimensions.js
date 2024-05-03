@@ -7,9 +7,17 @@ function setBodyDimensions() {
     document.body.style.width = `${window.innerWidth}px`;
 }
 
+// function setBodyDimensions() {
+//     let fullscreenElements = document.querySelectorAll('.fullscreen');
+//     fullscreenElements.forEach(element => {
+//         element.style.height = `${window.innerHeight}px`;
+//         element.style.width = `${window.innerWidth}px`;
+//     });
+// }
+
 function setBodyDimensions() {
-    let fullscreenElements = document.querySelectorAll('.fullscreen');
-    fullscreenElements.forEach(element => {
+    let bodyDimensionsElements = document.querySelectorAll('.body-dimensions');
+    bodyDimensionsElements.forEach(element => {
         element.style.height = `${window.innerHeight}px`;
         element.style.width = `${window.innerWidth}px`;
     });
