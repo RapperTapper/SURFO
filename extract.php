@@ -23,7 +23,7 @@ if (isset($data['values']['thun'])) {
     $thun_data = $data['values']['thun']; // get the data for Thun
 } else {
     $thun_data = [];
-    $thun_data['timestring'] = NULL;
+    $thun_data['timestamp'] = NULL;
     $thun_data['temperature'] = NULL;
     $thun_data['flow'] = NULL;
     $thun_data['forecast2h'] = NULL;
@@ -32,9 +32,9 @@ if (isset($data['values']['thun'])) {
 
 // wir sammeln keine Ortsdaten, sondern nur die Werte. Falls zu einem späteren Zeitpunk ein weiterer Ort hinzugefügt wird, muss dieser Code hier ergänzt werden.
 
-// if $thun_data['timestring'] is 12:34, dann $aareguruTime = $thun_data['timestring'], sonst $aareguruTime = NULL
-if (preg_match("/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/", $thun_data['timestring'])) {
-    $aareguruTime = $thun_data['timestring']; // get the time
+// if $thun_data['timestamp'] is numeric, dann $aareguruTime = $thun_data['timestamp'], sonst $aareguruTime = NULL
+if (is_numeric($thun_data['timestamp'])) {
+    $aareguruTime = $thun_data['timestamp']; // get the time
 } else {
     $aareguruTime = NULL;
 }
@@ -72,7 +72,7 @@ $aareguru_data[] = [
     'wasserfluss' => $flow,
     'vorhersage2h' => $forecast2h,
     'lufttemperatur' => $tt,
-    'aareguruTime' => $aareguruTime
+    'aareguruTimestamp' => $aareguruTime
 ];
 
 echo "Extraktion erfolgreich.";
