@@ -141,7 +141,23 @@ body {
     z-index: 1;
     top: 0;
     left: calc(100vw);
-    background-color: rgba(65, 108, 149, 0.5);
+    background-color: rgba(65, 108, 149, 0.8);
     border-radius: 0px;
     box-shadow: 0;
+}
+
+.info-div {
+    left: 100%;
+    transition: left 0.5s;
+}
+
+@media screen and (min-width: 750px) {
+    /* CSS for desktop */
+    /* Add your styles here */
+    .info-div {
+        left: 0%;
+        width: 50%;
+        height: 100%;
+        transition: left 0.5s;
+    }
 }
