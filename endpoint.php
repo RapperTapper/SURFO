@@ -74,16 +74,16 @@ try {
     // Code to print the latest data from my json object - just for testing
     $decodedData = json_decode($allData, true);
     
-    echo "<br>";
-    echo "<br>";
-    echo "Latest wasserfluss: " . end($decodedData['wasserfluss']);
-    echo "<br>";
-    echo "Latest temperatur: " . end($decodedData['temperatur']);
-    echo "<br>";
-    echo "Latest lufttemperatur: " . end($decodedData['lufttemperatur']);
-    echo "<br>";
-    echo "Latest unixtime: " . end($decodedData['unixtime']);
-    echo "<br>";
+    //echo "<br>";
+    //echo "<br>";
+    //echo "Latest wasserfluss: " . end($decodedData['wasserfluss']);
+    //echo "<br>";
+    //echo "Latest temperatur: " . end($decodedData['temperatur']);
+    //echo "<br>";
+    //echo "Latest lufttemperatur: " . end($decodedData['lufttemperatur']);
+    //echo "<br>";
+    //echo "Latest unixtime: " . end($decodedData['unixtime']);
+    //echo "<br>";
 
 } catch (PDOException $e) {
     die("ERROR: Could not able to execute $query. " . $e->getMessage());
