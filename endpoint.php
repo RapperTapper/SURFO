@@ -35,7 +35,7 @@ try {
         'unixtime' => array_map('floatval', $unixtime),
     ];
     // Code V02
-    $allData = json_encode($data);
+    $allData = json_encode(['data' => $data]);
 
     // print_r($wasserfluss);
     // print_r($temperatur);
