@@ -21,15 +21,29 @@ async function main () {
 
     // console.log(`Lufttemperatur: ${lufttemperatur}`);
     // console.log(`Temperatur: ${temperatur}`);
-    // console.log(`Unixtime: ${unixtime}`);
+     console.log(unixtime);
     // console.log(`Wasserfluss: ${wasserfluss}`);
+
+    // Get the current time in seconds
+    const currentTime = Math.floor(Date.now() / 1000);
+
+    // Calculate the timestamp for 24 hours ago
+    const twentyFourHoursAgo = currentTime - (24 * 60 * 60);
+
+    // Filter the unixtime array to get the timestamps within the last 24 hours
+    const latestTwentyFourHours = unixtime.filter(timestamp => timestamp >= twentyFourHoursAgo);
+
+    // Filter the wasserfluss array to get the values within the last 24 hours
+    const latestWasserfluss = wasserfluss.filter((_, index) => unixtime[index] >= twentyFourHoursAgo);
+
+     
 
     // Create a line chart
     const ctx = document.getElementById('wasserflussChart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: unixtime,
+            labels: latestTwentyFourHours.map(timestamp => new Date(timestamp * 1000).toLocaleTimeString('de-ch', {hour: '2-digit', minute: '2-digit'})),
             datasets: [{
                 label: 'Wasserfluss',
                 data: wasserfluss,
@@ -41,19 +55,15 @@ async function main () {
         options: {
             scales: {
                 x: {
-                    type: 'time',
-                    time: {
-                        unit: 'second'
-                    },
                     title: {
                         display: true,
-                        text: 'Unixtime'
+                        text: 'Zeit'
                     }
                 },
                 y: {
                     title: {
                         display: true,
-                        text: 'Wasserfluss'
+                        text: 'Wasserfluss in m3'
                     }
                 }
             }
