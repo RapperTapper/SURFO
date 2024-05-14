@@ -1,36 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de-CH">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swiss River Surfing</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SURFO - Wasserfluss | Thun</title>
+    <!-- style and script resources -->
+    <script src="setBodyDimensions.js"></script>
+    <!-- <script src="surfer-animation.js"></script> -->
     <link rel="stylesheet" href="css/styles.css">
+    <!--meta properties -->
+    <meta name="description" content=" Your site description." />
+    
+    <!-- ios icon stuff -->
+    <!-- <link rel="icon" href="images/icon/cropped-cropped-favicon-1-1-32x32.png" sizes="32x32" />
+    <link rel="icon" href="images/icon/cropped-cropped-favicon-1-1-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="images/icon/cropped-cropped-favicon-1-1-180x180.png" /> -->
 </head>
 <body>
-    <header>
-        <h1>Salli</h1>
-    </header>
-    
-    <main>
-        <section>
-            <p>Switzerland may be landlocked, but its vibrant river surfing scene defies the country’s Alpine borders. In the heart of Zurich, the River Limmat offers an extraordinary urban surfing spot beneath the quaint bridges, drawing both locals and tourists to its unique waves. This sport blends the thrill of surfing with the picturesque scenery of Swiss cities, making it a must-try adventure for every thrill-seeker.</p>
-        </section>
-        
-        <section>
-            <h2>Gallery</h2>
-            <img class="transparent-background" src="img/wasser.GIF" alt="WaterGif">
-            <img src="surfing2.jpg" alt="River Surfing Crowd">
-        </section>
-        
-        <section>
-            <h2>Surf Data</h2>
-            <p>Current Water Temperature: <span id="waterTemp">12°C</span></p>
-            <p>Weather Forecast: <span id="weatherForecast">Sunny, 15°C</span></p>
-        </section>
-    </main>
+    <div class="main">
+        <div class="surfer-div fullscreen body-dimensions">
+            <div class="surfer-div-header">
+                <h1 class="visually-hidden">SURFO</h1>
+                <h2 class="visually-hidden">Wasserfluss | Thun</h2>
+                <div class="logo-container">
+                    <object class="logo" type="image/svg+xml" data="./img/surfo.svg">Your browser does not support SVGs</object>
+                </div>
+            </div>
+            <div class="surfing-container">
+                <img class="surfer shake" id="surfer-moving" src="./img/surfer1.png" alt="Surfer:in auf der Welle">
+                <img class="welle" src="./img/welle.gif" alt="Welle in Bewegung">
+            </div>
+            <img class="fake-backgroundimage" src="./img/hintergrund-breit.jpg" alt="Backgroundimage">
+            <div class="live-info-container">
+                <div class="holz-container">
+                    <img src="./img/s3-holz-mobile.png" alt="Holzbalken als Hintergrund" class="holz">
+                    <div class="live-info-element-container">
+                        <p class="live-info-text big-number" id="element-wasserfluss">214 <span class="fraction"><span class="numerator">m³</span><span class="denominator">s</span></span></p>
+                        <p class="live-info-text-description">Wasserfluss</p>
+                    </div>
+                    
+                </div>
+                <div class="holz-container">
+                    <img src="./img/s1-holz-mobile.png" alt="Holzbalken als Hintergrund" class="holz">
+                    <div class="live-info-element-container">
+                        <p class="live-info-text big-number" id="element-wasserfluss">09.5°</p>
+                        <p class="live-info-text-description">Wassertemperatur</p>
+                    </div>
+                </div>
+                <div class="holz-container">
+                    <img src="./img/s2-holz-mobile.png" alt="Holzbalken als Hintergrund" class="holz">
+                    <div class="live-info-element-container">
+                        <p class="live-info-text big-number" id="element-wasserfluss">24.3°</p>
+                        <p class="live-info-text-description">Lufttemperatur</p>
+                    </div>
+                </div>
+                <div class="holz-container">
+                    <img src="./img/s4-holz-mobile.png" alt="Holzbalken als Hintergrund" class="holz">
+                    <div class="live-info-element-container">
+                        <p class="live-info-text big-number">Erweitert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info-div fullscreen">
 
-    <footer>
-        <p>© 2024 Swiss River Surfing. All rights reserved.</p>
-    </footer>
+        </div>
+    </div>
 </body>
 </html>
