@@ -147,14 +147,14 @@ body {
     bottom: 30%;
     z-index: -1;
     width: auto;
-    height: 30vh;
+    height: 30%;
     /* padding: auto 0; align the item in the middle... that would be cool! */
 }
 
 .welle {
     position: absolute;
     bottom: -47%;
-    height: 100vh;
+    height: 100%;
     width: auto;
     margin: 0;
     z-index: -5;
