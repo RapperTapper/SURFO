@@ -58,6 +58,7 @@ async function createChart () {
                 backgroundColor: '#FFFFFF',
                 borderColor: '#FFFFFF',
                 borderWidth: 4
+                // pointBackgroundColor: latestWasserfluss.map(() => 'rgba(255, 255, 255, 0.5)')
             }]
         },
         options: {
@@ -182,6 +183,19 @@ const verticalLinePlugin = {
         }
     }
 };
+
+// // Function to update point opacities
+// function updatePointOpacities(chart, activeIndex) {
+//     const dataset = chart.data.datasets[0];
+//     for (let i = 0; i < dataset.data.length; i++) {
+//         if (i === activeIndex) {
+//             dataset.pointBackgroundColor[i] = 'rgba(255, 255, 255, 1)';
+//         } else {
+//             dataset.pointBackgroundColor[i] = 'rgba(255, 255, 255, 0)';
+//         }
+//     }
+// }
+
    
 createChart ();
 
