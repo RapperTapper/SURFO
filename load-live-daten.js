@@ -11,31 +11,48 @@ async function fetchLiveData() {
     }
 }
 
+let startTrigger = 0;
+let endTrigger = 0;
+let wasserflussRandom = 310;
+let decrement = 220;
 
-// let wasserflussRandom = 511;
-// const decrement = (511 - 140) / 160; // Calculate the amount to decrement each time
+function prepareDecrementValue(liveWasserfluss) {
+    wasserflussRandom = liveWasserfluss;
+    decrement = (wasserflussRandom - 120) / 40; // Calculate the amount to decrement each time
+    decrementValue();
+}
 
-// function decrementValue() {
-//     for (let i = 0; i <= 160; i++) {
-//         setTimeout(() => {
-//             wasserflussRandom -= decrement;
-//             ouputLatestValuesToDom(wasserflussRandom);
-//             if (i === 160) incrementValue(); // Call increment function at the end
-//         }, i * 100);
-//     }
-// }
+function decrementValue() {
+    for (let i = 0; i <= 40; i++) {
+        setTimeout(() => {
+            wasserflussRandom -= decrement;
+            setSurferHeight(wasserflussRandom);
+            if (i === 40) {
+                endTrigger++;
+                console.log('endTrigger set to: ' + endTrigger);
+            incrementValue();
+            }
+             // Call increment function at the end
+        }, i * 100);
+    }
+}
 
-// function incrementValue() {
-//     for (let i = 0; i <= 160; i++) {
-//         setTimeout(() => {
-//             wasserflussRandom += decrement;
-//             ouputLatestValuesToDom(wasserflussRandom);
-//             if (i === 160) decrementValue(); // Call decrement function at the end
-//         }, i * 100);
-//     }
-// }
+function incrementValue() {
+    for (let i = 0; i <= 40; i++) {
+        setTimeout(() => {
+            wasserflussRandom += decrement;
+            setSurferHeight(wasserflussRandom);
+            if (i === 40) {
+                if (endTrigger !== 2) {
+                decrementValue();
+                }
+            }
+             // Call decrement function at the end
+        }, i * 100);
+    }
+}
 
-// decrementValue(); // Start with decrementing
+
 
 //asynchrone funktion mit await überprüfen 
 async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe geben
@@ -44,7 +61,6 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
     // let liveWasserfluss = parseFloat(wasserflussRandom);
     let liveWassertemperatur = parseFloat(data.data.liveTemperatur);
     let liveLufttemperatur = parseFloat(data.data.liveLufttemperatur);
-    let surferHeight = 16;
     
     // console.log(wasserfluss);
     // console.log(wassertemperatur);
@@ -54,18 +70,10 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
     liveWassertemperatur = liveWassertemperatur.toFixed(1).padStart(4, '0');
     liveLufttemperatur = liveLufttemperatur.toFixed(1).padStart(4, '0');
     
-    if (liveWasserfluss >= 500) {
-        surferHeight = -20;
-    } else if (liveWasserfluss >= 300) {
-        surferHeight = interpolate(liveWasserfluss, 300, -17, 500, -20);
-    } else if (liveWasserfluss >= 230) {
-        surferHeight = interpolate(liveWasserfluss, 230, -10, 300, -17);
-    } else if (liveWasserfluss >= 100) {
-        surferHeight = interpolate(liveWasserfluss, 100, 13, 230, -10);
-    } else {
-        surferHeight = 16; // Default value
+    if (startTrigger === 0) {
+        prepareDecrementValue(liveWasserfluss);
     }
-    
+    startTrigger = 1;
     // if (liveWasserfluss >= 500) {
     //     surferHeight = -20;
     // } else if (liveWasserfluss >= 300) {
@@ -89,17 +97,35 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
         element.textContent = liveLufttemperatur + '°';
         console.log('liveLufttemperatur set to: ' + liveLufttemperatur + '°');
     });
-    
-    document.querySelectorAll('.surfing-container').forEach(element => {
-        element.style.top = surferHeight + 'vh';
-        console.log('surferHeight set to: ' + surferHeight + 'vh');
-    });
-
+    if (endTrigger === 2) {
+     setSurferHeight(liveWasserfluss);
+    }
     // setTimeout(ouputLatestValuesToDom, 50);
     setTimeout(ouputLatestValuesToDom,10000);
 
 }
-   
+
+function setSurferHeight(liveWasserfluss) {
+    
+    let surferHeight = 16;
+    
+    if (liveWasserfluss >= 500) {
+        surferHeight = -20;
+    } else if (liveWasserfluss >= 300) {
+        surferHeight = interpolate(liveWasserfluss, 300, -17, 500, -20);
+    } else if (liveWasserfluss >= 230) {
+        surferHeight = interpolate(liveWasserfluss, 230, -10, 300, -17);
+    } else if (liveWasserfluss >= 100) {
+        surferHeight = interpolate(liveWasserfluss, 100, 13, 230, -10);
+    } else {
+        surferHeight = 16; // Default value
+    }
+    document.querySelectorAll('.surfing-container').forEach(element => {
+        element.style.top = surferHeight + 'vh';
+        console.log('surferHeight set to: ' + surferHeight + 'vh');
+    });
+}
+
 function interpolate(value, x1, y1, x2, y2) {
     return ((value - x1) * (y2 - y1) / (x2 - x1)) + y1;
 }
