@@ -38,6 +38,10 @@ async function main () {
     // console.log(latestWasserfluss);
 
     let times = latestTwentyFourHours.map(timestamp => new Date(timestamp * 1000).toLocaleTimeString('de-ch', {hour: '2-digit', minute: '2-digit', hour12: false}))
+    
+    const level = latestWasserfluss.flat();
+    const unten = Math.min(...level) - 30;
+    const oben = Math.max(...level) + 5;
 
     // Create a line chart
     const ctx = document.getElementById('wasserflussChart').getContext('2d');
@@ -85,8 +89,8 @@ async function main () {
                     // }
                 },
                 y: {
-                    min: 50, // Set the minimum value of y-axis to 50
-                    // max: 200, // Set the maximum value of y-axis to 200
+                    // min: 50, // Set the minimum value of y-axis to 50
+                    // // max: 200, // Set the maximum value of y-axis to 200
                     title: {
                         display: true,
                         text: 'Wasserfluss in m3/s',

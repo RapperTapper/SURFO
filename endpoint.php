@@ -25,6 +25,7 @@ try {
         $unixtime[] = $row['unixtime'];
         
     }
+
     // Code V02
     $data = [
         'wasserfluss' => array_map('floatval', $wasserfluss),
@@ -32,6 +33,7 @@ try {
         'lufttemperatur' => array_map('floatval', $lufttemperatur),
         'unixtime' => array_map('floatval', $unixtime),
     ];
+
     // Code V02
     $allData = json_encode(['data' => $data]);
 
