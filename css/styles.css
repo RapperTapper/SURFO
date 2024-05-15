@@ -289,6 +289,7 @@ svg text {
     max-height: 100%;
     border-radius: 0px;
     box-shadow: 0;
+    overflow-y: auto;
     /* overflow-x: hidden; */
     /* overflow-y: hidden; */
 }
@@ -307,7 +308,6 @@ svg text {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 .anzeige {
@@ -407,8 +407,8 @@ svg text {
     -webkit-appearance: none;
     appearance: none;
     width: 20vw;
-    height: 20vw;
-    background: url('../img/slider.svg');
+    height: 23vw;
+    background: url('../img/slider.png');
     background-size: cover;
     cursor: pointer;
     margin-bottom: 16px;
