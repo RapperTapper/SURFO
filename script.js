@@ -44,13 +44,13 @@ async function main () {
     const myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: latestTwentyFourHours.map(timestamp => new Date(timestamp * 1000).toLocaleTimeString('de-ch', {hour: '2-digit', minute: '2-digit', hour12: false})),
+            labels: latestTwentyFourHours.map(timestamp => new Date(timestamp * 1000).toLocaleTimeString('de-ch', {day:'2-digit', month:'2-digit', year:'2-digit', hour: '2-digit', minute: '2-digit', hour12: false})),
             datasets: [{
                 label: 'Wasserfluss',
                 data: latestWasserfluss,
-                backgroundColor: 'red',
-                borderColor: 'red',
-                borderWidth: 1
+                backgroundColor: '#FFFFFF',
+                borderColor: '#FFFFFF',
+                borderWidth: 4
             }]
         },
         options: {
@@ -61,7 +61,15 @@ async function main () {
                         callback: (val, index) => {
                             return new Date('Tue May 14 2024 ' + times[val] + ':22 GMT+0200').toLocaleTimeString('de-ch', {hour: '2-digit', minute: '2-digit', hour12: false}).replace(/:\d+$/, ':00');
                         },
+                        color: '#FFFFFF',  // Farbe der X-Achsen-Werte
+                        font: {
+                            family: 'Avenir',  // Schriftart der X-Achsen-Werte
+                            size: 14,          // Schriftgröße der X-Achsen-Werte
+                            weight: 'bold'     // Schriftgewicht der X-Achsen-Werte
+                        }
                     },
+
+                    
                 
                     // type: 'time',
                     // time: {
@@ -81,9 +89,40 @@ async function main () {
                     // max: 200, // Set the maximum value of y-axis to 200
                     title: {
                         display: true,
-                        text: 'Wasserfluss in m3/s'
+                        text: 'Wasserfluss in m3/s',
+                        color: '#FFFFFF',  // Farbe der X-Achsen-Werte
+                        font: {
+                            family: 'Avenir',  // Schriftart der X-Achsen-Werte
+                            size: 14,          // Schriftgröße der X-Achsen-Werte
+                            weight: 'bold',     // Schriftgewicht der X-Achsen-Werte
+                        }
+                    },
+                    ticks: {
+                        color: '#FFFFFF',  // Farbe der X-Achsen-Werte
+                        font: {
+                            family: 'Avenir',  // Schriftart der X-Achsen-Werte
+                            size: 14,          // Schriftgröße der X-Achsen-Werte
+                            weight: 'bold'     // Schriftgewicht der X-Achsen-Werte
+                        }
+                    },
+                    grid: {
+                        color: '#374577',  // Farbe der horizontalen Linien
+                        lineWidth: 3       // Dicke der horizontalen Linien
                     }
                 }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                beforeDraw: (chart) => {
+                    const ctx = chart.ctx;
+                    ctx.save();
+                    ctx.fillStyle = '#000000'; // Hintergrundfarbe
+                    ctx.fillRect(0, 0, chart.width, chart.height);
+                    ctx.restore();
+                }
+                
             }
         }
     });
