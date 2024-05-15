@@ -48,8 +48,8 @@ async function main () {
             datasets: [{
                 label: 'Wasserfluss',
                 data: latestWasserfluss,
-                backgroundColor: 'rgba(0, 123, 255, 0.2)',
-                borderColor: 'rgba(0, 123, 255, 1)',
+                backgroundColor: 'red',
+                borderColor: 'red',
                 borderWidth: 1
             }]
         },
