@@ -369,6 +369,8 @@ svg text {
 .canvas-container {
     box-sizing: border-box;
     border: 3px solid white;
+    /* background: linear-gradient(to bottom, #69C2F3 0%, #69C2F3 65%, #69C2F3 100%); */
+    background: linear-gradient(to top, rgba(105, 194, 243, .9) 0%, rgba(105, 194, 243, 0.4) 40%, rgba(105, 194, 243, .2) 100%);
 }
 
 .canvas {
@@ -381,11 +383,11 @@ svg text {
 }
 
 .slidecontainer {
-    width: 87%;
+    width: 103.2%;
     display: flex;
     justify-content: center;
-    margin-top: 30px;
-    margin-left: 10%;
+    margin-top: 45px;
+    margin-left: 1%;
 }
 
 .slider {
@@ -404,11 +406,12 @@ svg text {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 6vw;
-    height: 6vw;
+    width: 20vw;
+    height: 20vw;
     background: url('../img/slider.svg');
     background-size: cover;
     cursor: pointer;
+    margin-bottom: 16px;
 }
 
 /* ANIMATIONEN */
