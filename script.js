@@ -12,7 +12,7 @@ async function fetchData() {
 }
 
 //asynchrone funktion mit await überprüfen 
-async function main () {
+async function createChart () {
     let data = await fetchData();
     let lufttemperatur = data.data.lufttemperatur;
     let temperatur = data.data.temperatur;
@@ -40,7 +40,7 @@ async function main () {
     let times = latestTwentyFourHours.map(timestamp => new Date(timestamp * 1000).toLocaleTimeString('de-ch', {hour: '2-digit', minute: '2-digit', hour12: false}))
     
     const level = latestWasserfluss.flat();
-    const unten = Math.min(...level) - 15;
+    const unten = Math.min(...level) - 5;
     const oben = Math.max(...level) + 5;
 
     // console.log(unten);
@@ -135,6 +135,25 @@ async function main () {
             }
         }
     });
+
+    // Get the slider element
+    const slider = document.getElementById('slider');
+
+    // Add an event listener to the slider
+    slider.addEventListener('input', function() {
+        // Get the current slider value
+        const sliderValue = this.value;
+
+        // Filter the data based on the slider value
+        const filteredData = data.filter((_, index) => unixtime[index] >= currentTime - sliderValue * 60 * 60);
+
+        // Update the chart with the filtered data
+        myChart.data.labels = filteredData.map(timestamp => new Date(timestamp * 1000).toLocaleTimeString('de-ch', {day:'2-digit', month:'2-digit', year:'2-digit', hour: '2-digit', minute: '2-digit', hour12: false}));
+        myChart.data.datasets[0].data = filteredData;
+        myChart.update();
+    });
+
 }
    
-main ();
+createChart ();
+
