@@ -13,7 +13,7 @@ async function fetchLiveData() {
 
 
 // let wasserflussRandom = 511;
-// const decrement = (511 - 90) / 160; // Calculate the amount to decrement each time
+// const decrement = (511 - 140) / 160; // Calculate the amount to decrement each time
 
 // function decrementValue() {
 //     for (let i = 0; i <= 160; i++) {
