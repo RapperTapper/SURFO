@@ -12,7 +12,7 @@ async function fetchData() {
 }
 
 //asynchrone funktion mit await überprüfen 
-async function main () {
+async function createChart () {
     let data = await fetchData();
     let lufttemperatur = data.data.lufttemperatur;
     let temperatur = data.data.temperatur;
@@ -40,7 +40,7 @@ async function main () {
     let times = latestTwentyFourHours.map(timestamp => new Date(timestamp * 1000).toLocaleTimeString('de-ch', {hour: '2-digit', minute: '2-digit', hour12: false}))
     
     const level = latestWasserfluss.flat();
-    const unten = Math.min(...level) - 15;
+    const unten = Math.min(...level) - 5;
     const oben = Math.max(...level) + 5;
 
     // console.log(unten);
@@ -130,11 +130,58 @@ async function main () {
                     ctx.fillStyle = '#000000'; // Hintergrundfarbe
                     ctx.fillRect(0, 0, chart.width, chart.height);
                     ctx.restore();
-                }
+                },
+                verticalLine: 7 // Initialize as undefine
                 
             }
-        }
+        },
+        plugins: [verticalLinePlugin]
     });
+
+// Get the slider element
+const slider = document.getElementById('slider');
+
+// Add an event listener to the slider to draw the vertical line
+slider.addEventListener('input', function () {
+    myChart.options.plugins.verticalLine = this.value;
+    console.log(this.value);
+    myChart.update();
+});
 }
+
+// Plugin for drawing the vertical line
+const verticalLinePlugin = {
+    id: 'verticalLine',
+    afterDraw: (chart) => {
+        if (chart.options.plugins.verticalLine !== undefined) {
+            const ctx = chart.ctx;
+            const xAxis = chart.scales.x;
+            const yAxis = chart.scales.y;
+            const value = chart.options.plugins.verticalLine;
+            const index = value - 1;
+
+            if (index >= 0 && index < xAxis.ticks.length) {
+                const x = xAxis.getPixelForTick(index);
+                const label = chart.data.labels[index];
+                const yValue = chart.data.datasets[0].data[index];
+
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(x, yAxis.top);
+                ctx.lineTo(x, yAxis.bottom);
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = '#FF0000';
+                ctx.stroke();
+
+                // Draw the value label
+                ctx.font = 'bold 14px Avenir';
+                ctx.fillStyle = '#FF0000';
+                ctx.fillText(yValue, x + 5, yAxis.top + 20);
+                ctx.restore();
+            }
+        }
+    }
+};
    
-main ();
+createChart ();
+
