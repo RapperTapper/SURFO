@@ -368,6 +368,7 @@ svg text {
 
 .canvas-container {
     box-sizing: border-box;
+    height: auto;
     border: 3px solid white;
     /* background: linear-gradient(to bottom, #69C2F3 0%, #69C2F3 65%, #69C2F3 100%); */
     background: linear-gradient(to top, rgba(105, 194, 243, .9) 0%, rgba(105, 194, 243, 0.4) 40%, rgba(105, 194, 243, .2) 100%);
@@ -435,16 +436,14 @@ svg text {
 }
 
 @media screen and (min-width: 510px) {
-    /* CSS for desktop */
-    /* Add your styles here */
     .info-div {
         left: 0%;
-        /* width: 100%; */
-        /* height: 100%; */
+        width: 100%;
         transition: left 0.75s;
     }
     .surfer-div {
         left: -70%;
+        width: 150%;
         /* Add any other styles for the element */
         transition: left 0.75s;
     }
