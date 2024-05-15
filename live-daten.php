@@ -12,14 +12,16 @@ try {
     
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    $wasserfluss = floatval($result['wasserfluss']);
-    $temperatur = floatval($result['temperatur']);
-    $lufttemperatur = floatval($result['lufttemperatur']);
+    // print_r($result);
+
+    $liveWasserfluss = floatval($result['wasserfluss']);
+    $liveTemperatur = floatval($result['temperatur']);
+    $liveLufttemperatur = floatval($result['lufttemperatur']);
     
     $data = [
-        'wasserfluss' => $wasserfluss,
-        'temperatur' => $temperatur,
-        'lufttemperatur' => $lufttemperatur
+        'liveWasserfluss' => $liveWasserfluss,
+        'liveTemperatur' => $liveTemperatur,
+        'liveLufttemperatur' => $liveLufttemperatur
     ];
 
     $allData = json_encode(['data' => $data]);

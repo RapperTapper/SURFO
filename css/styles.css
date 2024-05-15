@@ -168,6 +168,7 @@ svg text {
     z-index: -1;
     width: auto;
     height: 30%;
+    transition: top 0.25s;
     /* padding: auto 0; align the item in the middle... that would be cool! */
 }
 
@@ -441,6 +442,20 @@ svg text {
     .surfer-div {
         left: -70%;
         width: 150%;
+        /* Add any other styles for the element */
+        transition: left 0.75s;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .info-div {
+        left: 50%;
+        width: 50vw;
+        transition: left 0.75s;
+    }
+    .surfer-div {
+        left: 0%;
+        width: 50vw;
         /* Add any other styles for the element */
         transition: left 0.75s;
     }
