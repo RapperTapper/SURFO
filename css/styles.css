@@ -247,7 +247,7 @@ svg text {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.element-wasserfluss {
+#element-wasserfluss {
     position: absolute;
     /* Add any other styles for the element */
 }
@@ -299,6 +299,50 @@ svg text {
     justify-content: center;
     margin: calc(10vh) auto 0 auto;
 }
+
+.info-container {
+    position: relative;
+    margin: 0 10%;
+    z-index: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.anzeige {
+    z-index: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 30px 0 0 0;
+}
+
+.anzeige-daten {
+    z-index: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 30px 0 0 0;
+}
+
+.anzeige-element-container {
+    z-index: inherit;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+ /* Centers the text */
+
 
 .holz-backgroundimage {
     position: absolute;
