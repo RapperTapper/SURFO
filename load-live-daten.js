@@ -18,11 +18,19 @@ async function ouputLatestValuesToDom () {
     let wassertemperatur = data.data.temperatur;
     let lufttemperatur = data.data.lufttemperatur;
     
+    wasserfluss = wasserfluss.toFixed(0).padStart(3, '0');
     wassertemperatur = wassertemperatur.toFixed(1).padStart(4, '0');
+    lufttemperatur = lufttemperatur.toFixed(1).padStart(4, '0');
 
-    document.getElementById('element-lufttemperatur').textContent = lufttemperatur + '°';
-    document.getElementById('element-wassertemperatur').textContent = wassertemperatur + '°';
-    document.getElementById('element-wasserfluss').textContent = wasserfluss;
+    document.querySelectorAll('.element-lufttemperatur').forEach(element => {
+        element.textContent = lufttemperatur + '°';
+    });
+    document.querySelectorAll('.element-wassertemperatur').forEach(element => {
+        element.textContent = wassertemperatur + '°';
+    });
+    document.querySelectorAll('.element-wasserfluss').forEach(element => {
+        element.textContent = wasserfluss;
+    });
 
     setTimeout(ouputLatestValuesToDom, 5000);
 
