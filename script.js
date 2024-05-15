@@ -105,6 +105,8 @@ async function main () {
                         }
                     },
                     ticks: {
+                        min: unten,
+                        max: oben,
                         color: '#FFFFFF',  // Farbe der X-Achsen-Werte
                         font: {
                             family: 'Avenir',  // Schriftart der X-Achsen-Werte
