@@ -136,22 +136,48 @@ async function createChart () {
         }
     });
 
-    // Get the slider element
-    const slider = document.getElementById('slider');
+// Get the slider element
+const slider = document.getElementById('slider');
 
-    // Add an event listener to the slider
-    slider.addEventListener('input', function() {
-        // Get the current slider value
-        const sliderValue = this.value;
+// Add an event listener to the slider to draw the vertical line
+slider.addEventListener('input', function () {
+    myChart.options.plugins.verticalLine = this.value;
+    myChart.update();
+});
+}
 
-        // Filter the data based on the slider value
-        const filteredData = data.filter((_, index) => unixtime[index] >= currentTime - sliderValue * 60 * 60);
+// Plugin for drawing the vertical line
+const verticalLinePlugin = {
+id: 'verticalLine',
+afterDraw: (chart) => {
+    if (chart.options.plugins.verticalLine) {
+        const ctx = chart.ctx;
+        const xAxis = chart.scales.x;
+        const yAxis = chart.scales.y;
+        const value = chart.options.plugins.verticalLine;
+        const index = value - 1;
 
-        // Update the chart with the filtered data
-        myChart.data.labels = filteredData.map(timestamp => new Date(timestamp * 1000).toLocaleTimeString('de-ch', {day:'2-digit', month:'2-digit', year:'2-digit', hour: '2-digit', minute: '2-digit', hour12: false}));
-        myChart.data.datasets[0].data = filteredData;
-        myChart.update();
-    });
+        if (index >= 0 && index < xAxis.ticks.length) {
+            const x = xAxis.getPixelForTick(index);
+            const label = chart.data.labels[index];
+            const yValue = chart.data.datasets[0].data[index];
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(x, yAxis.top);
+            ctx.lineTo(x, yAxis.bottom);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#FF0000';
+            ctx.stroke();
+
+            // Draw the value label
+            ctx.font = 'bold 14px Avenir';
+            ctx.fillStyle = '#FF0000';
+            ctx.fillText(yValue, x + 5, yAxis.top + 20);
+            ctx.restore();
+        }
+    }
+}
 
 }
    

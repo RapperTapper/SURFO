@@ -90,6 +90,13 @@ body {
     overflow-y: hidden;
 }
 
+svg text {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -133,10 +140,11 @@ body {
 
 .surfing-container {
     position: absolute;
-    bottom: 0;
+    /* bottom: 0; */
     width: 100%;
     height: 100%;
-    top: 0vh;
+    top: 13vh;
+    /* maximal Werte -20vh bis 13vh */
     display: flex;
     justify-content: center;
     align-items: end;
@@ -182,7 +190,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    left: 70%;
+    right: -295px;
     align-items: start;
     margin: 0;
     z-index: 1;
@@ -192,7 +200,7 @@ body {
     position: relative;
     z-index: 1;
     width: auto;
-    height: 12%;
+    height: 86px;
 }
 
 .holz-container:nth-child(3) {
@@ -205,13 +213,14 @@ body {
     width: auto;
     height: 100%;
     /* padding: auto 0; align the item in the middle... that would be cool! */
+    user-select: none;
 }
 
 .live-info-element-container {
     position: absolute;
     z-index: 5;
     top: 50%; /* Adjust these values to position the text */
-    left: 30px;
+    left: 20px;
     transform: translate(-0%, -43%); /* Centers the text */
     text-transform: uppercase;
     color: white;
@@ -246,29 +255,15 @@ body {
 
 .info-div {
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     top: 0;
-    left: calc(100vw);
+    left: 100%;
     background-color: rgba(65, 108, 149, 0.8);
     border-radius: 0px;
     box-shadow: 0;
-}
-
-/* .info-div {
     left: 100%;
-    transition: left 0.5s;
-} */
-
-/* @media screen and (min-width: 750px) { */
-    /* CSS for desktop */
-    /* Add your styles here */
-    /* .info-div {
-        left: 0%;
-        width: 50%;
-        height: 100%;
-        transition: left 0.5s;
-    } */
-/* } */
+    transition: left 0.9s;
+}
 
 /* ANIMATIONEN */
 
@@ -290,3 +285,13 @@ body {
     animation: shake 5s cubic-bezier(0.2, 0.1, 0.2, 0.1) infinite; /* duration and easing */
 }
 
+@media screen and (min-width: 510px) {
+    /* CSS for desktop */
+    /* Add your styles here */
+    .info-div {
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        transition: left 0.5s;
+    }
+}
