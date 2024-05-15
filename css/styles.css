@@ -212,14 +212,29 @@ body {
     z-index: 5;
     top: 50%; /* Adjust these values to position the text */
     left: 30px;
-    transform: translate(-0%, -50%); /* Centers the text */
+    transform: translate(-0%, -43%); /* Centers the text */
     text-transform: uppercase;
     color: white;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+#element-wasserfluss {
+    position: absolute;
+    /* Add any other styles for the element */
+}
+
+#element-wassertemperatur {
+    margin-bottom: -8px;
+    /* Add any other styles for the element */
+}
+
+#element-lufttemperatur {
+    margin-bottom: -8px;
+    /* Add any other styles for the element */
+}
+
 .big-number {
-    font-size: clamp(2rem, 0.75rem + 4vw, 3rem);
+    font-size: 47px;
     font-weight: 700;
 }
 .live-info-text-description {
@@ -255,22 +270,6 @@ body {
     } */
 /* } */
 
-.fraction {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.numerator {
-    display: block;
-    font-size: 0.8em;
-    border-bottom: 3px solid white;
-}
-
-.denominator {
-    display: block;
-    font-size: 0.8em;
-}
 /* ANIMATIONEN */
 
 @keyframes shake {
