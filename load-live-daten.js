@@ -61,10 +61,12 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
     // let liveWasserfluss = parseFloat(wasserflussRandom);
     let liveWassertemperatur = parseFloat(data.data.liveTemperatur);
     let liveLufttemperatur = parseFloat(data.data.liveLufttemperatur);
+    let anzeigeDatum = parseFloat(data.data.liveUnixtime);
     
     // console.log(wasserfluss);
     // console.log(wassertemperatur);
     // console.log(lufttemperatur);
+    console.log(anzeigeDatum);
 
     liveWasserfluss = liveWasserfluss.toFixed(0).padStart(3, '0');
     liveWassertemperatur = liveWassertemperatur.toFixed(1).padStart(4, '0');

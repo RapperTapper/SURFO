@@ -1,14 +1,14 @@
 // Get the div element with the id "erweitert"
 const erweitertDivs = document.querySelectorAll(".erweitert");
-// const zurueckDivs = document.querySelectorAll(".zurueck");
+const zurueckDivs = document.querySelectorAll(".zurueck-btn");
 
 // Add event listener to the div
 erweitertDivs.forEach(div => {
     div.addEventListener("click", switchToObserver);
 });
-// zurueckDivs.forEach(div => {
-//     div.addEventListener("click", switchToSurfo);
-// });
+zurueckDivs.forEach(div => {
+    div.addEventListener("click", switchToSurfo);
+});
 
 // Function to be called when the div is clicked
 function switchToObserver() {
