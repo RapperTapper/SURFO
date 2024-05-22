@@ -11,6 +11,7 @@ async function fetchLiveData() {
     }
 }
 
+// Trigger -> for the surfer up and down motion
 let startTrigger = 0;
 let endTrigger = 0;
 let wasserflussRandom = 310;
@@ -18,18 +19,18 @@ let decrement = 220;
 
 function prepareDecrementValue(liveWasserfluss) {
     wasserflussRandom = liveWasserfluss;
-    decrement = (wasserflussRandom - 120) / 40; // Calculate the amount to decrement each time
+    decrement = (wasserflussRandom - 120) / 30; // Calculate the amount to decrement each time
     decrementValue();
 }
 
 function decrementValue() {
-    for (let i = 0; i <= 40; i++) {
+    for (let i = 0; i <= 30; i++) {
         setTimeout(() => {
             wasserflussRandom -= decrement;
             setSurferHeight(wasserflussRandom);
-            if (i === 40) {
-                endTrigger++;
-                console.log('endTrigger set to: ' + endTrigger);
+            if (i === 30) {
+                // endTrigger++;
+                // console.log('endTrigger set to: ' + endTrigger);
             incrementValue();
             }
              // Call increment function at the end
@@ -38,11 +39,13 @@ function decrementValue() {
 }
 
 function incrementValue() {
-    for (let i = 0; i <= 40; i++) {
+    for (let i = 0; i <= 30; i++) {
         setTimeout(() => {
             wasserflussRandom += decrement;
             setSurferHeight(wasserflussRandom);
-            if (i === 40) {
+            if (i === 30) {
+                endTrigger++;
+                console.log('endTrigger set to: ' + endTrigger);
                 if (endTrigger !== 2) {
                 decrementValue();
                 }
@@ -128,6 +131,7 @@ function setSurferHeight(liveWasserfluss) {
     });
 }
 
+// Interpolates a value from one range to another (surfer moving up and down smoothly)
 function interpolate(value, x1, y1, x2, y2) {
     return ((value - x1) * (y2 - y1) / (x2 - x1)) + y1;
 }
