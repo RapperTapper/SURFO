@@ -19,6 +19,8 @@ try {
     $liveLufttemperatur = floatval($result['lufttemperatur']);
     $liveUnixtime = intval($result['unixtime']);
     
+    // echo $liveUnixtime;
+
     $data = [
         'liveWasserfluss' => $liveWasserfluss,
         'liveTemperatur' => $liveTemperatur,

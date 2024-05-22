@@ -55,6 +55,24 @@ function incrementValue() {
     }
 }
 
+function unixTimeToDate(unixTime) {
+    const date = new Date(unixTime * 1000); // Convert to milliseconds by multiplying by 1000
+
+    const day = ("0" + date.getDate()).slice(-2);
+    const month = ("0" + (date.getMonth() + 1)).slice(-2); // Months are zero-based in JavaScript
+    const year = date.getFullYear();
+
+    return `${day}.${month}.${year}`; // Format: DD:MM:YYYY
+}
+
+function unixTimeTo24Hours(unixTime) {
+    const date = new Date(unixTime * 1000); // Convert to milliseconds by multiplying by 1000
+
+    const hours = ("0" + date.getHours()).slice(-2);
+    const minutes = ("0" + date.getMinutes()).slice(-2);
+
+    return `${hours}:${minutes} Uhr`; // Format: HH:MM Uhr
+}
 
 
 //asynchrone funktion mit await überprüfen 
@@ -65,16 +83,20 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
     let liveWassertemperatur = parseFloat(data.data.liveTemperatur);
     let liveLufttemperatur = parseFloat(data.data.liveLufttemperatur);
     let anzeigeDatum = parseFloat(data.data.liveUnixtime);
+    let anzeigeZeit = parseFloat(data.data.liveUnixtime);
     
     // console.log(wasserfluss);
     // console.log(wassertemperatur);
     // console.log(lufttemperatur);
-    console.log(anzeigeDatum);
 
     liveWasserfluss = liveWasserfluss.toFixed(0).padStart(3, '0');
     liveWassertemperatur = liveWassertemperatur.toFixed(1).padStart(4, '0');
     liveLufttemperatur = liveLufttemperatur.toFixed(1).padStart(4, '0');
-    
+
+    // anzeigeDatum von unixtime in Datum umwandeln
+    anzeigeDatum = unixTimeToDate(anzeigeDatum);
+    anzeigeZeit = unixTimeTo24Hours(anzeigeZeit);
+
     if (startTrigger === 0) {
         prepareDecrementValue(liveWasserfluss);
     }
@@ -98,6 +120,8 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
         element.textContent = liveWassertemperatur + '°';
         console.log('liveWassertemperatur set to: ' + liveWassertemperatur + '°');
     });
+    document.getElementById('anzeige-datum').textContent = anzeigeDatum;
+    document.getElementById('anzeige-zeit').textContent = anzeigeZeit;
     document.querySelectorAll('.element-lufttemperatur').forEach(element => {
         element.textContent = liveLufttemperatur + '°';
         console.log('liveLufttemperatur set to: ' + liveLufttemperatur + '°');
