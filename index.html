@@ -43,7 +43,6 @@
                         <object type="image/svg+xml" data="./img/wasserfluss.svg" alt="Kubikmeter pro Sekunde - Wasserfluss" class="live-info-svg">Your browser does not support SVGs</object>
                         <span class="visually-hidden">Kubikmeter Wasser pro Sekunde</span>
                     </div>
-                    
                 </div>
                 <div class="holz-container">
                     <img src="./img/s1-holz-mobile.png" alt="Holzbalken als Hintergrund" class="holz">
@@ -62,8 +61,8 @@
                     </div>
                 </div>
                 <div class="holz-container erweitert">
-                    <img src="./img/s4-holz-mobile.png" alt="Holzbalken als Hintergrund" class="holz erweitert">
-                    <div class="live-info-element-container erweitert">
+                    <img src="./img/s4-holz-mobile.png" alt="Holzbalken als Hintergrund" class="holz">
+                    <div class="live-info-element-container">
                         <object type="image/svg+xml" data="./img/erweitert.svg" alt="erweitert" class="live-info-svg erweitert">Your browser does not support SVGs</object>
                         <span class="visually-hidden">erweitert</span>
                     </div>
@@ -110,17 +109,30 @@
                         <input type="range" min="1" max="12" value="7" class="slider" id="slider">
                     </div>
                 </div>
-                <div class="zurueck zurück-btn">
-                    <img src="./img/s4-holz-mobile.png" alt="Holzbalken als Hintergrund" class="holz-zurueck zurück-btn">
-                    <div class="live-info-element-container-zurueck zurück-btn">
-                        <object type="image/svg+xml" data="./img/zurueck.svg" alt="zurueck" class="live-info-svg zurück-btn">Your browser does not support SVGs</object>
-                        <span class="visually-hidden">zurueck</span>
-                    </div>
-                </div>
             </div>
             <img class="holz-backgroundimage" src="./img/holz-pc.png" alt="Backgroundimage">
             <!-- <div class="holz-backgroundimage"></div> -->
         </div>
+        <div class="live-info-container-zurueck">
+            <div class="holz-container-zurueck zurueck">
+                <img src="./img/s4-holz-mobile.png" alt="Holzbalken als Hintergrund" class="holz-zurueck">
+                <div class="live-info-element-container-zurueck">
+                    <object type="image/svg+xml" data="./img/zurueck.svg" alt="zurück" class="live-info-svg zurueck">Your browser does not support SVGs</object>
+                    <span class="visually-hidden">zurueck</span>
+                </div>
+            </div>
+        </div>
+        <!-- spicker - remove inbetween -->
+        <!-- <div class="live-info-container">
+            <div class="holz-container-zurueck erweitert">
+                <img src="./img/s4-holz-mobile.png" alt="Holzbalken als Hintergrund" class="holz">
+                <div class="live-info-element-container">
+                    <object type="image/svg+xml" data="./img/erweitert.svg" alt="erweitert" class="live-info-svg erweitert">Your browser does not support SVGs</object>
+                    <span class="visually-hidden">erweitert</span>
+                </div>
+            </div>
+        </div> -->
+        <!-- spicker - remove inbetween -->
     </div>
     <script src="load-live-daten.js"></script>
     <script src="generate-chart.js"></script>

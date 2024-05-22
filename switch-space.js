@@ -1,6 +1,6 @@
 // Get the div element with the id "erweitert"
 const erweitertDivs = document.querySelectorAll(".erweitert");
-const zurueckDivs = document.querySelectorAll(".zurueck-btn");
+const zurueckDivs = document.querySelectorAll(".zurueck");
 
 // Add event listener to the div
 erweitertDivs.forEach(div => {
