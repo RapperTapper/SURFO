@@ -209,7 +209,7 @@ svg text {
     flex-direction: column;
     justify-content: end;
     /* right: -295px; */
-    right: -480px;
+    right: -800px;
     align-items: start;
     margin: 0;
     z-index: 1;
@@ -445,7 +445,7 @@ svg text {
     flex-direction: column;
     justify-content: end;
     /* left: -395px; */
-    left: -480px;
+    left: -800px;
     align-items: start;
     margin: 0;
     z-index: 11;
@@ -502,7 +502,7 @@ svg text {
 
 /* Media Queries */
 
-@media screen and (min-width: 1800px){
+@media screen and (min-aspect-ratio: 1/0.68) {
     .surfer-div {
         width: 30%;
         max-width: 30%;
@@ -516,8 +516,7 @@ svg text {
     } 
 }
 
-
-@media screen and (min-width: 1500px) and (max-width: 1800px) {
+@media screen and (min-aspect-ratio: 0.74/1) and (max-aspect-ratio: 1/0.68) {
     .surfer-div {
         /* left: -25%; */
         width: 50%;
@@ -532,7 +531,7 @@ svg text {
     }
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (min-aspect-ratio: 0/1) and (max-aspect-ratio: 0.74/1) {
     .surfer-div {
         left: 0%;
         width: 100%;
