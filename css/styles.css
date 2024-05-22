@@ -128,8 +128,8 @@ svg text {
     border-radius: 0px;
     box-shadow: 0;
     transition-duration: 0.75s;
-    /* min-width: 40vw; */
-    /* max-width: 40vw; */
+    width: 100%;
+    max-width: 100%;
     min-height: 100%;
     max-height: 100%;
     /* overflow-x: hidden; */
@@ -289,8 +289,8 @@ svg text {
     box-shadow: 0;
     left: 110%;
     transition: left 0.9s;
-    /* min-width: 50vw;
-    max-width: 50vw; */
+    width: 100%;
+    max-width: 100%;
     min-height: 100%;
     max-height: 100%;
     border-radius: 0px;
@@ -445,7 +445,7 @@ svg text {
     flex-direction: column;
     justify-content: end;
     /* left: -395px; */
-    left: -800px;
+    left: -395px;
     align-items: start;
     margin: 0;
     z-index: 11;
@@ -506,49 +506,41 @@ svg text {
     .surfer-div {
         width: 30%;
         max-width: 30%;
-        transition: left 0.75s;
     }
     .info-div {
         left: 30%;
         width: 70%;
         max-width: 70%;
-        transition: left 0.75s;
     } 
 }
 
-@media screen and (min-aspect-ratio: 0.74/1) and (max-aspect-ratio: 1/0.68) {
+@media screen and (min-aspect-ratio: 0.73/1) and (max-aspect-ratio: 1/0.68) {
     .surfer-div {
-        /* left: -25%; */
         width: 50%;
         max-width: 50%;
-        transition: left 0.75s;
     }
     .info-div {
         left: 50%;
         width: 50%;
         max-width: 50%;
-        transition: left 0.75s;
+    }
+    .live-info-container-zurueck {
+        left: -800px;
     }
 }
 
-@media screen and (min-aspect-ratio: 0/1) and (max-aspect-ratio: 0.74/1) {
+@media screen and (min-aspect-ratio: 0/1) and (max-aspect-ratio: 0.73/1) {
     .surfer-div {
         left: 0%;
         width: 100%;
         max-width: 100%;
-        transition: left 0.75s;
     }
     .info-div {
-        width: 100%;
         left: 110%;
-        transition: left 0.75s;
-    }
-    .live-info-container-zurueck {
-        left: -395px;
-        transition: left 0.75s;
+        width: 100%;
+        max-width: 100%;
     }
     .live-info-container {
         right: -295px;
-        transition: right 0.75s;
     }
 }
