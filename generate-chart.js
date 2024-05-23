@@ -62,6 +62,9 @@ async function createChart () {
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 1.3,
             scales: {
                 x: {
                     ticks: {

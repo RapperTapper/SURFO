@@ -136,3 +136,4 @@ function applyStylesBasedOnAspectRatio() {
 
 window.onload = applyStylesBasedOnAspectRatio;
 window.onresize = applyStylesBasedOnAspectRatio;
+

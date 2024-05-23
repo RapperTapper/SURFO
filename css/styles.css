@@ -358,10 +358,8 @@ svg text {
     position: absolute;
     z-index: 8;
     top: -10%;
-    /* with this position left we can shift the image left/right */
-    /* left: -21%; */
     left: -10vw;
-    width: auto;
+    width: 110vw;
     height: 120%;
     object-fit: cover;
     object-position: 10% 10%;
@@ -384,7 +382,8 @@ svg text {
 
 .canvas {
     box-sizing: border-box;
-    width: 30vw;
+    min-width: 80vw;
+    width: 80vw;
     height: auto;
     max-height: 120vh; /* Adjust this to change the maximum height */
     max-width: 80vw;
