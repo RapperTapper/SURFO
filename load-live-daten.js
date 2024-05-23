@@ -129,6 +129,15 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
     if (endTrigger === 2) {
      setSurferHeight(liveWasserfluss);
     }
+
+    if (liveWasserfluss > 150) {
+        document.getElementById('wasserfluss-kommentar').textContent = 'zu viel'
+        } else if (liveWasserfluss < 90) {
+            document.getElementById('wasserfluss-kommentar').textContent = 'zu wenig'
+        } else {
+            document.getElementById('wasserfluss-kommentar').textContent = 'die perfekte Menge'
+    }
+
     // setTimeout(ouputLatestValuesToDom, 50);
     setTimeout(ouputLatestValuesToDom,10000);
 
@@ -161,3 +170,4 @@ function interpolate(value, x1, y1, x2, y2) {
 }
 
 ouputLatestValuesToDom ();
+
