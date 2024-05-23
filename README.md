@@ -1,9 +1,9 @@
 # SURFO
 
-## Projekt-Beschreibung & Idee:
+## Projekt-Beschreibung & Idee
 Surfo ist ... [content here]
 
-## Learnings:
+## Learnings
 ### Was hat funktioniert?
 - [content here]
 ### Was hat nicht funktioniert?
@@ -23,12 +23,12 @@ Surfo ist ... [content here]
 - Ausbildungsserver -> aktuell nur noch die Datenbank
 - Hostpoint -> Server / Hosting
 - Crontool -> fake Cronejob, da noch nicht bei Hostpoint eingerichtet
-### Validatoren:
+### Validatoren
     - HTML: https://validator.w3.org/
     - CSS: https://jigsaw.w3.org/css-validator/
     - JS: https://www.site24x7.com/tools/javascript-validator.html
 
-## Mitwirkende:
+## Mitwirkende
 Raphael Schnell, Julia Miller, Jan Vils
 
 # next few things to list!
