@@ -1,5 +1,5 @@
 console.log("Hello World!");
-
+// THIS FILE IS ONLY FOR DEVELOPMENT AND TESTING PURPOSES
 async function fetchData() {
     try {
         const response = await fetch('https://732516-12.web.fhgr.ch/endpoint.php');
