@@ -257,7 +257,7 @@ svg text {
     text-transform: uppercase;
 }
 
-#element-wasserfluss {
+.element-wasserfluss {
     position: absolute;
     /* Add any other styles for the element */
 }
