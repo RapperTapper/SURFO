@@ -13,15 +13,14 @@ Philosophie... etc... ergänzen??? -> ca. 500 Zeichen.
 ### Was hat nicht funktioniert?
 - Images: Hintergrundbild (Holzwand) auf der Info-Seite hat nie wirklich korrekt funktioniert. Egal was versucht wurde. irgendwann musste man sich geschlagen geben.
 - HTML und CSS: Teilweise war es schwer die Fehler zu finden. Z.B. wenn Parent-Element eine Flexbox ist und somit die Breite von Elementen teils nicht so gezielt angesprochen werden können, wie sonst etc.
-
-## Schwierigkeiten
+### Was waren Schwierigkeiten?
 - Zusammenarbeit im selben Code mit den Vorgegebenen Tools zu Arbeiten.
 - Github → individual pushes
 - SFTP → Dateien direkt auf Server on save
 - FileZilla → (image upload)
-- etc.
+- etc. ergänzen
 
-## benutzte Ressourcen
+## Benutzte Ressourcen
 - Visual Studio Code
 - Github Copilot
 - ChatGPT
