@@ -4,10 +4,10 @@
 Surfo ist ... [content here]
 
 ## Learnings:
-### - was hat funktioniert?
-[content here]
-### - was hat nicht funktioniert?
-[content here]
+### Was hat funktioniert?
+- [content here]
+### Was hat nicht funktioniert?
+- [content here]
 
 ## Schwierigkeiten
 - Zusammenarbeit im selben Code mit den Vorgegebenen Tools zu Arbeiten.
@@ -19,10 +19,10 @@ Surfo ist ... [content here]
 ## benutzte Ressourcen
 - Visual Studio Code
 - Github Copilot
-- Ausbildungsserver (aktuell noch mit Datenbank)
-- Server bei Hostpoint (Hosting)
-- Crontool für den "cronejob" (da noch nicht auf einem Host eingerichtet)
 - ChatGPT
+- Ausbildungsserver -> aktuell nur noch die Datenbank
+- Hostpoint -> Server / Hosting
+- Crontool -> fake Cronejob, da noch nicht bei Hostpoint eingerichtet
 ### Validatoren:
     - HTML: https://validator.w3.org/
     - CSS: https://jigsaw.w3.org/css-validator/
