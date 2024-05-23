@@ -28,9 +28,9 @@ Philosophie... etc... ergänzen??? -> ca. 500 Zeichen.
 - Hostpoint -> Server / Hosting
 - Crontool -> fake Cronejob, da noch nicht bei Hostpoint eingerichtet
 ### Validatoren
-    - HTML: https://validator.w3.org/
-    - CSS: https://jigsaw.w3.org/css-validator/
-    - JS: https://www.site24x7.com/tools/javascript-validator.html
+    - HTML: "https://validator.w3.org/"
+    - CSS: "https://jigsaw.w3.org/css-validator/"
+    - JS: "https://www.site24x7.com/tools/javascript-validator.html"
 
 ## Mitwirkende
 Raphael Schnell, Julia Miller, Jan Vils
