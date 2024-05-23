@@ -11,6 +11,50 @@ async function fetchLiveData() {
     }
 }
 
+// Trigger -> for the surfer up and down motion
+let startTrigger = 0;
+let endTrigger = 0;
+let wasserflussRandom = 310;
+let decrement = 220;
+
+function prepareDecrementValue(liveWasserfluss) {
+    wasserflussRandom = liveWasserfluss;
+    decrement = (wasserflussRandom - 120) / 30; // Calculate the amount to decrement each time
+    decrementValue();
+}
+
+function decrementValue() {
+    for (let i = 0; i <= 30; i++) {
+        setTimeout(() => {
+            wasserflussRandom -= decrement;
+            setSurferHeight(wasserflussRandom);
+            if (i === 30) {
+                // endTrigger++;
+                // console.log('endTrigger set to: ' + endTrigger);
+            incrementValue();
+            }
+             // Call increment function at the end
+        }, i * 100);
+    }
+}
+
+function incrementValue() {
+    for (let i = 0; i <= 30; i++) {
+        setTimeout(() => {
+            wasserflussRandom += decrement;
+            setSurferHeight(wasserflussRandom);
+            if (i === 30) {
+                endTrigger++;
+                console.log('endTrigger set to: ' + endTrigger);
+                if (endTrigger !== 2) {
+                decrementValue();
+                }
+            }
+             // Call decrement function at the end
+        }, i * 100);
+    }
+}
+
 function unixTimeToDate(unixTime) {
     const date = new Date(unixTime * 1000); // Convert to milliseconds by multiplying by 1000
 
@@ -53,6 +97,10 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
     anzeigeDatum = unixTimeToDate(anzeigeDatum);
     anzeigeZeit = unixTimeTo24Hours(anzeigeZeit);
 
+    if (startTrigger === 0) {
+        prepareDecrementValue(liveWasserfluss);
+    }
+    startTrigger = 1;
     // if (liveWasserfluss >= 500) {
     //     surferHeight = -20;
     // } else if (liveWasserfluss >= 300) {
@@ -78,6 +126,9 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
         element.textContent = liveLufttemperatur + '°';
         console.log('liveLufttemperatur set to: ' + liveLufttemperatur + '°');
     });
+    if (endTrigger === 2) {
+     setSurferHeight(liveWasserfluss);
+    }
 
     if (liveWasserfluss > 150) {
         document.getElementById('wasserfluss-kommentar').textContent = 'zu viel';
