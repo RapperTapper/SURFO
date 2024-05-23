@@ -29,9 +29,7 @@ Surfo ist ... [content here]
     - JS: https://www.site24x7.com/tools/javascript-validator.html
 
 ## Mitwirkende:
-Raphael Schnell
-Julia Miller
-Jan Vils
+Raphael Schnell, Julia Miller, Jan Vils
 
 # next few things to list!
 - Animation in separatem js -> jedoch nicht verlinkt, da wir es zu unruhig finden.
