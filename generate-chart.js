@@ -37,7 +37,7 @@ async function createChart () {
     let latestWasserfluss = wasserfluss.filter((_, index) => unixtime[index] >= twentyFourHoursAgo);
     // console.log(latestWasserfluss);
 
-    let times = latestTwentyFourHours.map(timestamp => new Date(timestamp * 1000).toLocaleTimeString('de-ch', {hour: '2-digit', minute: '2-digit', hour12: false}))
+    let times = latestTwentyFourHours.map(timestamp => new Date(timestamp * 1000).toLocaleTimeString('de-ch', {hour: '2-digit', minute: '2-digit', hour12: false}));
     
     const level = latestWasserfluss.flat();
     const unten = Math.min(...level) - 5;
