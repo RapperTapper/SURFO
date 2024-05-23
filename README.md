@@ -36,4 +36,4 @@ Philosophie... etc... ergänzen??? -> ca. 500 Zeichen.
 Raphael Schnell, Julia Miller, Jan Vils
 
 ## Notizen zum Code
-- Bei der Präsentation hatten wir damals einen Surfer, der sich mit den Wellen nach oben und unten bewegte. Wir haben auch Stilgründen diese Animation nun wieder aus dem Animation in separatem js -> jedoch nicht verlinkt, da wir es zu unruhig finden.
+Bei der Präsentation hatten wir damals einen Surfer, der sich mit den Wellen nach oben und unten bewegte. Wir haben auch Stilgründen diese Animation nun wieder aus dem «load-live-daten.js» gelöscht. Der Code ist jedoch in einem neuen file «load-live-daten-mit-up-and-down-animation.js» vorhanden. Wenn dieses anstelle von «load-live-daten.js» verlinkt wird, bewegt er sich direkt nach dem Seitenload wieder kurz etwas hoch und runter. Feature könnte in Zukunft auch ausgelöst werden, wenn auf den Surfer geklickt wird.
