@@ -35,5 +35,5 @@ Philosophie... etc... ergänzen??? -> ca. 500 Zeichen.
 ## Mitwirkende
 Raphael Schnell, Julia Miller, Jan Vils
 
-# next few things to list!
-- Animation in separatem js -> jedoch nicht verlinkt, da wir es zu unruhig finden.
+## Notizen zum Code
+- Bei der Präsentation hatten wir damals einen Surfer, der sich mit den Wellen nach oben und unten bewegte. Wir haben auch Stilgründen diese Animation nun wieder aus dem Animation in separatem js -> jedoch nicht verlinkt, da wir es zu unruhig finden.
