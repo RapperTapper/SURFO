@@ -21,7 +21,7 @@ Surfo ist ...
 - Server bei Hostpoint (Hosting)
 - Crontool für den "cronejob" (da noch nicht auf einem Host eingerichtet)
 - ChatGPT
-# - Validatoren:
+### Validatoren:
     - HTML: https://validator.w3.org/
     - CSS: https://jigsaw.w3.org/css-validator/
     - JS: https://www.site24x7.com/tools/javascript-validator.html
