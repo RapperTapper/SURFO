@@ -131,11 +131,11 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
     }
 
     if (liveWasserfluss > 150) {
-        document.getElementById('wasserfluss-kommentar').textContent = 'zu viel'
+        document.getElementById('wasserfluss-kommentar').textContent = 'zu viel';
         } else if (liveWasserfluss < 90) {
-            document.getElementById('wasserfluss-kommentar').textContent = 'zu wenig'
+            document.getElementById('wasserfluss-kommentar').textContent = 'zu wenig';
         } else {
-            document.getElementById('wasserfluss-kommentar').textContent = 'die perfekte Menge'
+            document.getElementById('wasserfluss-kommentar').textContent = 'die perfekte Menge';
     }
 
     // setTimeout(ouputLatestValuesToDom, 50);
