@@ -132,7 +132,7 @@ function applyStylesBasedOnAspectRatio() {
             div.style.right = "-800px";
         });
     }
-};
+}
 
 window.onload = applyStylesBasedOnAspectRatio;
 window.onresize = applyStylesBasedOnAspectRatio;
