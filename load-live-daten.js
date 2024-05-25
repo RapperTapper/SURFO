@@ -1,5 +1,6 @@
 console.log("Hello World!");
 
+// Funktion um Live-Daten von der eigenen API bzw. Datenbank zu holen
 async function fetchLiveData() {
     try {
         const response = await fetch ('https://732516-12.web.fhgr.ch/live-daten.php');
@@ -11,6 +12,7 @@ async function fetchLiveData() {
     }
 }
 
+// Funktion um Unixtime in Datum umzuwandeln
 function unixTimeToDate(unixTime) {
     const date = new Date(unixTime * 1000); // Convert to milliseconds by multiplying by 1000
 
@@ -21,6 +23,7 @@ function unixTimeToDate(unixTime) {
     return `${day}.${month}.${year}`; // Format: DD:MM:YYYY
 }
 
+// Funktion um Unixtime in 24 Stunden Format umzuwandeln
 function unixTimeTo24Hours(unixTime) {
     const date = new Date(unixTime * 1000); // Convert to milliseconds by multiplying by 1000
 
@@ -30,21 +33,16 @@ function unixTimeTo24Hours(unixTime) {
     return `${hours}:${minutes} Uhr`; // Format: HH:MM Uhr
 }
 
-
 //asynchrone funktion mit await überprüfen 
-async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe geben
+async function ouputLatestValuesToDom () {
     let data = await fetchLiveData();
     let liveWasserfluss = parseFloat(data.data.liveWasserfluss);
-    // let liveWasserfluss = parseFloat(wasserflussRandom);
     let liveWassertemperatur = parseFloat(data.data.liveTemperatur);
     let liveLufttemperatur = parseFloat(data.data.liveLufttemperatur);
     let anzeigeDatum = parseFloat(data.data.liveUnixtime);
     let anzeigeZeit = parseFloat(data.data.liveUnixtime);
-    
-    // console.log(wasserfluss);
-    // console.log(wassertemperatur);
-    // console.log(lufttemperatur);
 
+    // Werte auf 3 Stellen nach dem Komma runden und auf 3 Stellen auffüllen
     liveWasserfluss = liveWasserfluss.toFixed(0).padStart(3, '0');
     liveWassertemperatur = liveWassertemperatur.toFixed(1).padStart(4, '0');
     liveLufttemperatur = liveLufttemperatur.toFixed(1).padStart(4, '0');
@@ -53,17 +51,9 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
     anzeigeDatum = unixTimeToDate(anzeigeDatum);
     anzeigeZeit = unixTimeTo24Hours(anzeigeZeit);
 
-    // if (liveWasserfluss >= 500) {
-    //     surferHeight = -20;
-    // } else if (liveWasserfluss >= 300) {
-    //     surferHeight = -17;
-    // } else if (liveWasserfluss >= 230) {
-    //     surferHeight = -10;
-    // } else if (liveWasserfluss >= 100) {
-    //     surferHeight = 13;
-    // } else {
-    //     surferHeight = 16; // Default value
-    // }
+    // call setSurferHeight function to set the surfer height according to the water flow
+    setSurferHeight(liveWasserfluss);
+
     document.querySelectorAll('.element-wasserfluss').forEach(element => {
         element.textContent = liveWasserfluss;
         console.log('liveWasserfluss set to: ' + liveWasserfluss);
@@ -79,6 +69,7 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
         console.log('liveLufttemperatur set to: ' + liveLufttemperatur + '°');
     });
 
+    // Kommentar zur Wasserflussmenge in Textfeld anzeigen
     if (liveWasserfluss > 150) {
         document.getElementById('wasserfluss-kommentar').textContent = 'zu viel';
         } else if (liveWasserfluss < 90) {
@@ -87,14 +78,15 @@ async function ouputLatestValuesToDom () { // wasserflussRandom in die Schlaufe 
             document.getElementById('wasserfluss-kommentar').textContent = 'die perfekte Menge';
     }
 
-    // setTimeout(ouputLatestValuesToDom, 50);
+    // call the function again after 10 seconds
     setTimeout(ouputLatestValuesToDom,10000);
 
 }
 
+// Funktion um die Höhe des Surfers zu setzen
 function setSurferHeight(liveWasserfluss) {
     
-    let surferHeight = 16;
+    let surferHeight = 15;
     
     if (liveWasserfluss >= 500) {
         surferHeight = -20;
@@ -102,10 +94,10 @@ function setSurferHeight(liveWasserfluss) {
         surferHeight = interpolate(liveWasserfluss, 300, -17, 500, -20);
     } else if (liveWasserfluss >= 230) {
         surferHeight = interpolate(liveWasserfluss, 230, -10, 300, -17);
-    } else if (liveWasserfluss >= 100) {
-        surferHeight = interpolate(liveWasserfluss, 100, 13, 230, -10);
+    } else if (liveWasserfluss >= 85) {
+        surferHeight = interpolate(liveWasserfluss, 85, 15, 230, -10);
     } else {
-        surferHeight = 16; // Default value
+        surferHeight = 15; // Default value
     }
     document.querySelectorAll('.surfing-container').forEach(element => {
         element.style.top = surferHeight + 'vh';
