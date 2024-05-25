@@ -13,6 +13,7 @@ Philosophie... etc... ergänzen??? -> ca. 500 Zeichen.
 ### Was hat nicht funktioniert?
 - Images: Hintergrundbild (Holzwand) auf der Info-Seite hat nie wirklich korrekt funktioniert. Egal was versucht wurde. irgendwann musste man sich geschlagen geben.
 - HTML und CSS: Teilweise war es schwer die Fehler zu finden. Z.B. wenn Parent-Element eine Flexbox ist und somit die Breite von Elementen teils nicht so gezielt angesprochen werden können, wie sonst etc.
+- Font-size: Diese liess uns schön in einen Fehler laufen. Aktuell haben wir nicht herausgefunden, wie man dies korrigieren könnte ohne viel Aufwand zu haben. Beim Coden wurde für den Desktop der Browser mit 150% grösse verwenden. Für Mobile sieht alles tipptopp aus - abgesehen von der Holzwand.
 ### Was waren Schwierigkeiten?
 - Zusammenarbeit im selben Code mit den Vorgegebenen Tools zu Arbeiten.
 - Github → individual pushes
